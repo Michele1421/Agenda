@@ -1,6 +1,6 @@
 let nome;
 let numero;
-let check = Number (prompt(`Premere 1 per eliminare o aggiungere un contatto, \n premere 2 se vuoi modificare un contatto `))
+let check = Number (prompt(`Premere 1 per eliminare o aggiungere un contatto, \n premere 2 se vuoi modificare un contatto `));
 
 let rubrica= { 
     Contatti: [
@@ -10,7 +10,7 @@ let rubrica= {
 
     ],
 
-     Contacts: function(){
+     Contacts: function(name, number){
      
            this.Contatti.forEach(contatto => {
               
@@ -21,8 +21,8 @@ let rubrica= {
      
      },
 
-     Contacts2: function(nome){
-let contatto = this.Contatti.find(contatto=> contatto.nome == name)
+     Contacts2: function(name, number){
+          let contatto = this.Contatti.find(contatto => contatto.nome == name)
           if(contatto){
                console.log (`Contatto Trovato: ${contatto.nome}: ${contatto.numero}`);
           } else{
@@ -31,25 +31,25 @@ let contatto = this.Contatti.find(contatto=> contatto.nome == name)
      },
 
 
-      Rimuovicontatto:function(nome, numero){
+      Rimuovicontatto:function(name, Number){
             
              let contatto= this.Contatti.find(contatto => contatto.nome == name)
-          let indice = this.Contatti.indexOf(contatto)
+          let index = this.Contatti.indexOf(contatto)
           if(contatto) {
                this.Contatti.splice(index, 1)
                console.log(`Contatto Eliminato`);
           }else{
-               this.Contatti.push({nome: nome, numero: numero})
+               this.Contatti.push({nome: name, numero: Number})
                console.log(`Contatto Aggiunto`);
           }
 
      },    
 
-      Modificacontatto:function(){
-          let contatto= this.Contatti.find(contatto.nome== name)
+      Modificacontatto:function(name, New ){
+          let contatto = this.Contatti.find(contatto => contatto.nome == name)
           if(contatto){
                console.log (`Contatto Modificato`);
-               contatto.numero= nuovonumero
+               contatto.numero = New 
           }else{
                console.log (`Contatto Non Trovato`);
           }
